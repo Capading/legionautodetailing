@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Website</title>
+  <style>
+    :root {
+      --dark-blue: #1a1f33;
+      --black: #000000;
+      --light-text: #e0e0e0;
+      --accent-blue: #3b4d7e;
+      --button-color: #3b4d7e;
+      --button-hover: #2e3c5d;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--black);
+      color: var(--light-text);
+    }
+
+    header {
+      background-color: var(--dark-blue);
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav {
+      background-color: #101820;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent-blue);
+    }
+
+    .banner {
+      width: 100%;
+      height: 600px;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1696864277365-637915fa0018?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .banner-text {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .banner-subtext {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .quote-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--button-color);
+      color: white;
+      text-align: center;
+      font-size: 0.9em;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .quote-button:hover {
+      background-color: var(--button-hover);
+    }
+
+    /* Call Button */
+    .call-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--button-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9em;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .call-button:hover {
+      background-color: var(--button-hover);
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* About Us Section */
+    .about-us {
+      background-color: #2a2a2a;
+      padding: 40px;
+      border-radius: 8px;
+      color: white;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* This centers content horizontally */
+      flex-direction: row;
+      position: relative;
+      height: 400px; /* Added height to ensure there's space for the "Our Mission" heading */
+    }
+
+    /* Logo Style */
+    .about-us img {
+      width: 250px; /* Increased logo size */
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Text Alignments */
+    .about-us-text {
+      margin-left: 40px;
+      text-align: left;
+      max-width: 600px;
+    }
+
+    .about-us h2 {
+      font-size: 2em;
+      color: var(--accent-blue);
+      position: absolute;
+      top: 50%; /* Vertically center "Our Mission" */
+      left: 50%;
+      transform: translate(-50%, -500%); /* Center horizontally and vertically */
+    }
+
+    .about-us p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .social-media-icons {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-media-icons img {
+      width: 30px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .social-media-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--dark-blue);
+      color: #ccc;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 200px;
+      height: auto;
+    }
+
+    /* Add Dark Blue Bar Below Mission Statement */
+    .about-us::before {
+      content: '';
+      position: absolute;
+      bottom: 0px; /* Slight offset above the bottom */
+      left: 0;
+      width: 100%;
+      height: 20px; /* Height of the dark blue bar */
+      background-color: var(--dark-blue); /* Dark blue color */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img class="logo" src="https://img1.wsimg.com/isteam/ip/8eea134e-1f62-4168-9b45-4988e82e5ef8/cm8bvnp07alij0i96a1qs3z2g.webp/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true/fx-gs" alt="Test Website Logo" />
+
+  <!-- Header -->
+  <header>Test Website</header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Contact</a>
+    <a href="#">Gallery</a>
+    <a href="#">Packages</a>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner" id="banner">
+    <div class="banner-text">
+      Professional Interior and Exterior car detailing in Caro, MI.
+      <div class="banner-subtext">
+        Premium Auto Detailing
+      </div>
+      <a href="#quote" class="quote-button">Get A Free Quote</a>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-media-icons">
+      <a href="https://www.facebook.com/people/Legion-Auto-Detailing/61573058196949/" target="_blank">
+        <img src="https://cdn3.emoji.gg/emojis/6537_Facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/legionautodetailing/?next=%2F" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@legionautodetailing?lang=en" target="_blank">
+        <img src="https://cdn3.emoji.gg/emojis/38698-icono-de-tiktok.png" alt="TikTok">
+      </a>
+      <a href="https://www.youtube.com/@legionautodetailing" target="_blank">
+        <img src="https://cdn3.emoji.gg/emojis/6463-youtube.png" alt="YouTube">
+      </a>
+    </div>
+
+    <!-- Call Button -->
+    <a href="tel:8103375484" class="call-button">Call: (810) 337-5484</a>
+  </div>
+
+  <!-- About Us Section -->
+  <div class="content">
+    <div class="about-us">
+      <!-- Logo on the left side -->
+      <img src="https://img1.wsimg.com/isteam/ip/8eea134e-1f62-4168-9b45-4988e82e5ef8/cm8bvnp07alij0i96a1qs3z2g.webp/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true/fx-gs" alt="Test Website Logo" />
+
+      <!-- Mission Statement on the right side -->
+      <div class="about-us-text">
+        <h2>Our Mission</h2>
+        <p>
+          At Legion Auto Detailing, our mission is to provide top-notch auto detailing services that exceed our customers' expectations. 
+          We believe that every vehicle deserves to shine, and we are dedicated to restoring your car's beauty and protecting its value.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Test Website. All rights reserved.
+  </div>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const banner = document.getElementById('banner');
+      const scrollPosition = window.scrollY;
+      banner.style.backgroundPosition = `center ${-(scrollPosition * 2.7)}px`;
+    });
+  </script>
+
+</body>
+</html>
