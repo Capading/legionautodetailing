@@ -19,6 +19,9 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--black);
       color: var(--light-text);
+      line-height: 1.6;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     header {
@@ -36,6 +39,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap; /* Ensure items wrap on smaller screens */
     }
 
     nav a {
@@ -135,20 +139,18 @@
       margin-top: 40px;
       display: flex;
       align-items: center;
-      justify-content: center; /* This centers content horizontally */
+      justify-content: center;
       flex-direction: row;
       position: relative;
-      height: 400px; /* Added height to ensure there's space for the "Our Mission" heading */
+      height: 400px;
     }
 
-    /* Logo Style */
     .about-us img {
-      width: 250px; /* Increased logo size */
+      width: 250px;
       height: auto;
       object-fit: cover;
     }
 
-    /* Text Alignments */
     .about-us-text {
       margin-left: 40px;
       text-align: left;
@@ -159,9 +161,9 @@
       font-size: 2em;
       color: var(--accent-blue);
       position: absolute;
-      top: 50%; /* Vertically center "Our Mission" */
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -500%); /* Center horizontally and vertically */
+      transform: translate(-50%, -500%);
     }
 
     .about-us p {
@@ -203,15 +205,115 @@
       height: auto;
     }
 
-    /* Add Dark Blue Bar Below Mission Statement */
     .about-us::before {
       content: '';
       position: absolute;
-      bottom: 0px; /* Slight offset above the bottom */
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 20px; /* Height of the dark blue bar */
-      background-color: var(--dark-blue); /* Dark blue color */
+      height: 20px;
+      background-color: var(--dark-blue);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .banner-text {
+        font-size: 1.5em;
+      }
+
+      .quote-button {
+        font-size: 1em;
+      }
+
+      .about-us {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+      }
+
+      .about-us img {
+        width: 200px;
+        margin-bottom: 20px;
+      }
+
+      .about-us-text {
+        margin-left: 0;
+      }
+
+      .about-us h2 {
+        font-size: 1.5em;
+        position: relative;
+        top: auto;
+        transform: none;
+      }
+
+      .social-media-icons {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav a {
+        font-size: 1.2em;
+        margin: 5px 0;
+      }
+
+      .banner-text {
+        font-size: 1.3em;
+      }
+
+      .quote-button {
+        font-size: 1.2em;
+        padding: 12px 25px;
+      }
+
+      .about-us img {
+        width: 180px;
+      }
+
+      .about-us-text {
+        font-size: 1em;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.5em;
+      }
+
+      .banner-text {
+        font-size: 1.2em;
+      }
+
+      .quote-button {
+        font-size: 1.1em;
+      }
+
+      .about-us img {
+        width: 150px;
+      }
+
+      .about-us h2 {
+        font-size: 1.3em;
+      }
+
+      .social-media-icons img {
+        width: 25px;
+      }
+
+      .footer {
+        padding: 10px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -292,3 +394,4 @@
 
 </body>
 </html>
+
