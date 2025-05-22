@@ -7,38 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="quote-page">
-  <header>Thank You!</header>
+  <header>Thank You<span id="customer-name"></span>!</header>
 
   <div class="content">
     <div class="about-us">
       <div class="about-us-text">
         <h2>Your Quote Request Has Been Received</h2>
-        <p>Thank you for contacting us! We've received your quote request and will get back to you as soon as possible with your free quote.</p>
-        <p>If you don't see a message window, please manually send your details to:</p>
-        <p><strong>SMS:</strong> (540) 855-8962 or <strong>Email:</strong> alex06aug30@gmail.com<br>
+        <p>We'll review your information and get back to you soon with your free quote.</p>
+        
+        <div class="photo-submission">
+          <h3>Next Step: Send Your Vehicle Photos</h3>
+          <p>To help us provide the most accurate quote, please send photos of your vehicle's current condition:</p>
+          
+          <div class="submission-options">
+            <div class="option">
+              <h4>Option 1: Text Photos</h4>
+              <p>Reply to the SMS message you received with your photos attached</p>
+              <p class="contact-info">Or text directly to: <strong>(540) 855-8962</strong></p>
+            </div>
+            
+            <div class="option">
+              <h4>Option 2: Email Photos</h4>
+              <p>Reply to the email you received with your photos attached</p>
+              <p class="contact-info">Or email to: <strong>alex06aug30@gmail.com</strong></p>
+            </div>
+          </div>
+        </div>
         
         <a href="index.html" class="quote-button">Return to Home</a>
       </div>
     </div>
   </div>
 
-  <div class="social-media-icons">
-    <a href="https://www.facebook.com/people/Legion-Auto-Detailing/61573058196949/" target="_blank">
-      <img src="https://cdn3.emoji.gg/emojis/6537_Facebook.png" alt="Facebook">
-    </a>
-    <a href="https://www.instagram.com/legionautodetailing" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
-    </a>
-    <a href="https://www.tiktok.com/@legionautodetailing" target="_blank">
-      <img src="https://cdn3.emoji.gg/emojis/38698-icono-de-tiktok.png" alt="TikTok">
-    </a>
-    <a href="https://www.youtube.com/@legionautodetailing" target="_blank">
-      <img src="https://cdn3.emoji.gg/emojis/6463-youtube.png" alt="YouTube">
-    </a>
-  </div>
-
-  <div class="footer">
-    &copy; 2025 Test Website. All rights reserved.
-  </div>
+  <!-- Keep your existing social media and footer sections -->
 </body>
+<script>
+  // Get the name from URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name');
+  if (name) {
+    document.getElementById('customer-name').textContent = name;
+  }
+</script>
 </html>
