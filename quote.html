@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get a Free Quote</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="quote-page">
+
+  <header>Get a Free Quote</header>
+
+  <div class="content">
+    <form id="quoteForm" class="about-us">
+      <div class="about-us-text">
+        <h2>Tell Us About Your Vehicle</h2>
+
+        <label>What is the make and model of your vehicle?</label><br>
+        <input type="text" name="vehicle-type" required><br><br>
+
+        <label>What are you looking for?</label><br>
+        <select name="service-type" required>
+          <option value="">Select a package...</option>
+          <option value="interior">Full Interior Detail</option>
+          <option value="exterior">Full Exterior Detail</option>
+          <option value="full">Full Interior & Exterior Detail</option>
+          <option value="ceramic">Full Ceramic Coat</option>
+          <option value="claybar">Full Clay Bar</option>
+          <option value="fullclayceramic">Full Ceramic Coat & Clay Bar</option>
+          <option value="wheel">Wheel & Tire Shine</option>
+          <option value="lightrestore">Headlight & Taillight Restoration</option>
+        </select><br><br>
+
+        <label>Are there any specific concerns? (e.g., stains, pet hair)</label><br>
+        <textarea name="concerns"></textarea><br><br>
+
+        <label>What is your preferred appointment date?</label><br>
+        <input type="date" name="date" required><br><br>
+
+        <label>What time of day works best?</label><br>
+        <select name="time">
+          <option value="">Select a time...</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select><br><br>
+
+        <label>Your name</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Your email or phone number</label><br>
+        <input type="text" name="contact" required><br><br>
+
+        <button class="quote-button" type="submit">Submit</button>
+      </div>
+    </form>
+
+<script>
+  document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Format message for SMS/email
+    const message = `New Quote Request:\n\n` +
+                   `Name: ${this.elements['name'].value}\n` +
+                   `Contact: ${this.elements['contact'].value}\n` +
+                   `Vehicle: ${this.elements['vehicle-type'].value}\n` +
+                   `Service: ${this.elements['service-type'].value}\n` +
+                   `Date: ${this.elements['date'].value}\n` +
+                   `Time: ${this.elements['time'].value}\n` +
+                   `Concerns: ${this.elements['concerns'].value || 'None'}`;
+    
+    // Improved mobile detection
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
+    // Try SMS first on mobile devices
+    if (isMobile) {
+      const phoneNumber = '5408558962';
+      const smsLink = `sms:${phoneNumber}?&body=${encodeURIComponent(message)}`;
+      
+      // Open in new tab/window
+      const smsWindow = window.open(smsLink, '_blank');
+      
+      // Fallback to email if SMS window was blocked or failed
+      setTimeout(() => {
+        if (!smsWindow || smsWindow.closed) {
+          sendEmailFallback(message);
+        }
+        // Redirect after attempting to send
+        window.location.href = 'thank-you.html';
+      }, 1000);
+    } else {
+      // Desktop - go straight to email
+      sendEmailFallback(message);
+      // Redirect after sending
+      window.location.href = 'thank-you.html';
+    }
+  });
+  
+  function sendEmailFallback(message) {
+    const email = 'alex06aug30@gmail.com';
+    const subject = 'New Quote Request';
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    window.ope89///////////////n(mailtoLink, '_blank'L:);
+  }
+</script
+>XZ
+
+
+  </div>
+
+  <div class="social-media-icons">
+    <a href="https://www.facebook.com/people/Legion-Auto-Detailing/61573058196949/" target="_blank">
+      <img src="https://cdn3.emoji.gg/emojis/6537_Facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/legionautodetailing" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/@legionautodetailing" target="_blank">
+      <img src="https://cdn3.emoji.gg/emojis/38698-icono-de-tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://www.youtube.com/@legionautodetailing" target="_blank">
+      <img src="https://cdn3.emoji.gg/emojis/6463-youtube.png" alt="YouTube">
+    </a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Test Website. All rights reserved.
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
