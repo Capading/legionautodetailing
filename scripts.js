@@ -61,3 +61,21 @@ document.getElementById('quoteForm').addEventListener('submit', async function(e
     // Open in new tab
     window.open(mailtoLink, '_blank');
   }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const reviewsContainer = document.querySelector('.reviews-container');
+  
+  if (reviewsContainer) {
+    // This is where we would normally fetch Google reviews via API
+    // Since we can't, we'll use our manual reviews as fallback
+    
+    // Add click tracking for the "Read more reviews" link
+    const moreReviewsLink = document.querySelector('.more-reviews-link');
+    if (moreReviewsLink) {
+      moreReviewsLink.addEventListener('click', function() {
+        // This would track the click in analytics if you had it set up
+        console.log('User clicked to view more reviews');
+      });
+    }
+  }
+});
